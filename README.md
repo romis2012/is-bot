@@ -1,5 +1,9 @@
 ## is-bot
 
+[![CI](https://github.com/romis2012/is-bot/actions/workflows/ci.yml/badge.svg)](https://github.com/romis2012/is-bot/actions/workflows/ci.yml)
+[![Coverage Status](https://codecov.io/gh/romis2012/is-bot/branch/master/graph/badge.svg)](https://codecov.io/gh/romis2012/is-bot)
+[![PyPI version](https://badge.fury.io/py/is-bot.svg)](https://pypi.python.org/pypi/is-bot)
+
 Python package to detect bots/crawlers/spiders via user-agent string.
 This is a Python port of the [isbot](https://github.com/omrilotan/isbot) JavaScript module.
 
