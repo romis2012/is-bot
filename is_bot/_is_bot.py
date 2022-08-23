@@ -38,4 +38,3 @@ class Bots:
         pattern = compile_patterns(self.patterns)
         match = pattern.search(ua)
         return match and match[0]
-
