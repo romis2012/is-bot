@@ -18,12 +18,12 @@ class Bots:
         self.patterns = frozenset(patterns)
 
     def extend(self, patterns: typing.Iterable[str]):
-        if isinstance(patterns, str):
+        if isinstance(patterns, str):  # pragma: nocover
             patterns = [patterns]
         self.patterns = self.patterns | frozenset(patterns)
 
     def exclude(self, patterns: typing.Iterable[str]):
-        if isinstance(patterns, str):
+        if isinstance(patterns, str):  # pragma: nocover
             patterns = [patterns]
         self.patterns = self.patterns - frozenset(patterns)
 
@@ -31,10 +31,10 @@ class Bots:
         pattern = compile_patterns(self.patterns)
         return bool(pattern.search(ua))
 
-    def matches(self, ua: str) -> typing.List[str]:
+    def matches(self, ua: str) -> typing.List[str]:  # pragma: nocover
         return [s for s in self.patterns if regex.search(s, ua, regex.IGNORECASE)]
 
-    def find(self, ua: str) -> typing.Optional[str]:
+    def find(self, ua: str) -> typing.Optional[str]:  # pragma: nocover
         pattern = compile_patterns(self.patterns)
         match = pattern.search(ua)
         return match and match[0]

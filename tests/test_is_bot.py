@@ -34,3 +34,21 @@ def test_is_bot():
 
     for ua in NOT_BOTS:
         assert not bots.is_bot(ua)
+
+
+def test_extend():
+    bots = Bots()
+    ua = 'SomeAwesomeBrowser/10.0 (Linux; Android 7.0)'
+    assert not bots.is_bot(ua)
+    bots.extend(['SomeAwesomeBrowser'])
+    assert bots.is_bot(ua)
+
+
+def test_exclude():
+    bots = Bots()
+    # fmt: off
+    ua = 'Mozilla/5.0 (Linux; Android 7.0; Moto G (4)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4695.0 Mobile Safari/537.36 Chrome-Lighthouse'
+    # fmt: on
+    assert bots.is_bot(ua)
+    bots.exclude(['chrome-lighthouse'])
+    assert not bots.is_bot(ua)
