@@ -5,7 +5,7 @@
 [![PyPI version](https://badge.fury.io/py/is-bot.svg)](https://pypi.python.org/pypi/is-bot)
 
 Python package to detect bots/crawlers/spiders via user-agent string.
-This is a Python port of the [isbot](https://github.com/omrilotan/isbot) JavaScript module.
+This is a port of the [isbot](https://github.com/omrilotan/isbot) JavaScript module.
 
 
 ## Requirements

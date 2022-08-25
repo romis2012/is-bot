@@ -185,6 +185,7 @@ default_patterns = {
     "scan",
     "scrape",
     "search",
+    "serp ?reputation ?management",
     "server",
     "sogou",
     "sparkler/",
