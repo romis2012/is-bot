@@ -32,6 +32,7 @@ default_patterns = {
     "^clamav[ /]",
     "^cobweb/",
     "^coccoc",
+    "^custom",
     "^dap ",
     "^ddg[_-]android",
     "^discourse",
@@ -220,7 +221,7 @@ default_patterns.add('(?<! cu)bot')
 
 # Android webview(?)
 default_patterns.remove('google')
-default_patterns.add('(?<! (channel\\/|google\\/))google(?!(app|\\/google))')
+default_patterns.add('(?<! (channel/|google/))google(?!(app|/google| pixel))')
 
 # Yandex browser
 default_patterns.remove('search')
