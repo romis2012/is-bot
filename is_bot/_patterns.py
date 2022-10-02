@@ -74,6 +74,7 @@ default_patterns = {
     "^my browser$",
     "^navermailapp",
     "^netsurf",
+    "^nginx\\W",
     "^node-superagent",
     "^octopus",
     "^offline explorer",
