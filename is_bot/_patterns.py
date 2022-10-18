@@ -1,5 +1,6 @@
 default_patterns = {
     " daum[ /]",
+    " DCV$",
     " deusu/",
     "(?:^| )site",
     "@[a-z]",
@@ -9,7 +10,7 @@ default_patterns = {
     "^12345",
     "^<",
     "^[\\w \\.]+/v?\\d+(\\.\\d+)?(\\.\\d{1,10})?$",
-    "^[\\w]+$",
+    "^[\\w\\-]+$",
     "^[^ ]{50,}$",
     "^ace explorer",
     "^acoon",
@@ -51,7 +52,6 @@ default_patterns = {
     "^hobbit",
     "^hotzonu",
     "^hwcdn/",
-    "^infox-wisg",
     "^invision",
     "^jeode/",
     "^jetbrains",
@@ -87,7 +87,6 @@ default_patterns = {
     "^python",
     "^read",
     "^reed",
-    "^request-promise$",
     "^restsharp/",
     "^shareaza",
     "^shockwave flash",
@@ -118,6 +117,7 @@ default_patterns = {
     "^zdm/\\d",
     "^zeushdthree",
     "^zoom marketplace/",
+    "^{{.*}}$",
     "adbeat\\.com",
     "appinsights",
     "archive",
@@ -144,7 +144,6 @@ default_patterns = {
     "download",
     "evc-batch/",
     "feed",
-    "fetch",
     "firephp",
     "freesafeip",
     "ghost",
@@ -157,7 +156,7 @@ default_patterns = {
     "hydra",
     "ibisbrowser",
     "images",
-    "index",
+    "iplabel",
     "ips-agent",
     "java",
     "library",
@@ -170,6 +169,7 @@ default_patterns = {
     "nutch",
     "offbyone",
     "optimize",
+    "pageburst",
     "pagespeed",
     "parse",
     "perl",
@@ -216,26 +216,20 @@ default_patterns = {
     "zgrab",
 }
 
-# Cubot device
-default_patterns.remove('bot')
-default_patterns.add('(?<! cu)bot')
+amend = [
+    # Addresses: Cubot device
+    ['bot', '(?<! cu)bot'],
+    # Addresses: Android webview
+    ['google', '(?<! (channel/|google/))google(?!(app|/google| pixel))'],
+    # Addresses: libhttp browser
+    ['http', '(?<!(lib))http'],
+    # Addresses: java based browsers
+    ['java', 'java(?!;)'],
+    # Yandex browser
+    ['search', '(?<! (ya|yandex))search'],
+]
 
-# Android webview(?)
-default_patterns.remove('google')
-default_patterns.add('(?<! (channel/|google/))google(?!(app|/google| pixel))')
-
-# Yandex browser
-default_patterns.remove('search')
-default_patterns.add('(?<! (ya|yandex))search')
-
-# libhttp browser
-default_patterns.remove('http')
-default_patterns.add('(?<!(lib))http')
-
-# java based browser
-default_patterns.remove('java')
-default_patterns.add('java(?!;)')
-
-# Mozilla nightly build https://github.com/mozilla-mobile/android-components/search?q=MozacFetch
-default_patterns.remove('fetch')
-default_patterns.add('(?<!(mozac))fetch')
+for search, replace in amend:
+    if search in default_patterns:
+        default_patterns.remove(search)
+        default_patterns.add(replace)
