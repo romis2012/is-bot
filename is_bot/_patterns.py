@@ -1,3 +1,4 @@
+# https://github.com/omrilotan/isbot/tree/v3.6.3
 default_patterns = {
     " daum[ /]",
     " DCV$",
