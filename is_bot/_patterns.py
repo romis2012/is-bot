@@ -1,8 +1,10 @@
-# https://github.com/omrilotan/isbot/tree/v3.6.3
+# https://github.com/omrilotan/isbot/tree/v3.6.13
 default_patterns = {
     " daum[ /]",
     " deusu/",
+    " yadirectfetcher",
     "(?:^| )site",
+    "(?:^|[^g])news",
     "@[a-z]",
     "\\(at\\)[a-z]",
     "\\(github\\.com/",
@@ -13,6 +15,7 @@ default_patterns = {
     "^[^ ]{50,}$",
     "^active",
     "^ad muncher",
+    "^amaya",
     "^anglesharp/",
     "^anonymous",
     "^avsdevicesdk/",
@@ -127,7 +130,6 @@ default_patterns = {
     "monitor",
     "morningscore/",
     "neustar wpm",
-    "news",
     "nutch",
     "offbyone",
     "optimize",
@@ -153,6 +155,7 @@ default_patterns = {
     "sparkler/",
     "speedcurve",
     "spider",
+    "splash",
     "statuscake",
     "stumbleupon\\.com",
     "supercleaner",
