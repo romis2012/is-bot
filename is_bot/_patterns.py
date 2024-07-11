@@ -1,4 +1,4 @@
-# https://github.com/omrilotan/isbot/tree/v3.6.13
+# https://github.com/omrilotan/isbot/tree/v5.1.12
 default_patterns = {
     " daum[ /]",
     " deusu/",
