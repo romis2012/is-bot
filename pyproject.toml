@@ -4,7 +4,7 @@ build-backend = 'setuptools.build_meta'
 
 [project]
 name = 'is-bot'
-license = 'Apache-2.0'
+license = { file = 'LICENSE.txt' }
 description = 'Python package to detect bots/crawlers/spiders via user-agent'
 readme = 'README.md'
 authors = [{ name = 'Roman Snegirev', email = 'snegiryev@gmail.com' }]
