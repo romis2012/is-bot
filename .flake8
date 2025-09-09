@@ -1,5 +1,5 @@
 [flake8]
 ignore = N805,W503
-max-line-length = 99
+max-line-length = 89
 per-file-ignores =
      tests/test_is_bot.py: E501

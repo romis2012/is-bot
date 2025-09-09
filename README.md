@@ -9,7 +9,7 @@ This is a port of the [isbot](https://github.com/omrilotan/isbot) JavaScript mod
 
 
 ## Requirements
-- Python >= 3.7
+- Python >= 3.8
 - regex >= 2022.8.17
 
 ## Installation

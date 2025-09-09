@@ -12,7 +12,7 @@ def compile_patterns(patterns: frozenset) -> regex.Pattern:
 
 
 class Bots:
-    def __init__(self, patterns: typing.Iterable[str] = None):
+    def __init__(self, patterns: typing.Optional[typing.Iterable[str]] = None):
         if patterns is None:
             patterns = default_patterns
         self.patterns = frozenset(patterns)
