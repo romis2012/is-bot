@@ -1,0 +1,35 @@
+name: Periodic Update
+
+on:
+  schedule:
+    - cron: "0 12 * * 1" # Runs every Monday at noon UTC
+
+permissions:
+  issues: write
+  contents: read
+
+jobs:
+  update-patterns:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Run update script
+        run: ./update.sh
+        id: update_script
+      - name: Check for changes
+        run: |
+          if [ -n "$(git status --porcelain)" ]; then
+            echo "Changes detected."
+            echo "changes=true" >> $GITHUB_ENV
+          else
+            echo "No changes detected."
+            echo "changes=false" >> $GITHUB_ENV
+          fi
+      - name: Create issue if changes detected
+        if: env.changes == 'true'
+        uses: peter-evans/create-issue-from-file@v5
+        with:
+          title: "Patterns file updated"
+          content-filepath: ./is_bot/_patterns.py
+          labels: update
