@@ -54,7 +54,7 @@ select = ["ALL"]
 ignore = [
     "D",
     "CPY001", # missing-copyright-notice (CPY001)
-    "FA100", # missing-copyright-notice (CPY001)
-    "S101",    # Use of assert detected
+    "FA100", # future-rewritable-type-annotation (FA100)
+    "S101", # assert (S101)
     "COM812", # missing-trailing-comma (COM812)
 ]
