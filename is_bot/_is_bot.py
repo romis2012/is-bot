@@ -1,5 +1,6 @@
-import typing
 import functools
+import typing
+
 from regex import regex
 
 from ._patterns import default_patterns
@@ -7,22 +8,22 @@ from ._patterns import default_patterns
 
 @functools.lru_cache(maxsize=1, typed=True)
 def compile_patterns(patterns: frozenset) -> regex.Pattern:
-    pattern = '({})'.format('|'.join(patterns))
+    pattern = "({})".format("|".join(patterns))
     return regex.compile(pattern, flags=regex.IGNORECASE)
 
 
 class Bots:
-    def __init__(self, patterns: typing.Optional[typing.Iterable[str]] = None):
+    def __init__(self, patterns: typing.Optional[typing.Iterable[str]] = None) -> None:
         if patterns is None:
             patterns = default_patterns
         self.patterns = frozenset(patterns)
 
-    def extend(self, patterns: typing.Iterable[str]):
+    def extend(self, patterns: typing.Iterable[str]) -> None:
         if isinstance(patterns, str):  # pragma: nocover
             patterns = [patterns]
         self.patterns = self.patterns | frozenset(patterns)
 
-    def exclude(self, patterns: typing.Iterable[str]):
+    def exclude(self, patterns: typing.Iterable[str]) -> None:
         if isinstance(patterns, str):  # pragma: nocover
             patterns = [patterns]
         self.patterns = self.patterns - frozenset(patterns)

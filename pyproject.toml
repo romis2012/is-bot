@@ -41,8 +41,20 @@ version = { attr = 'is_bot.__version__' }
 [tool.setuptools.packages.find]
 include = ['is_bot*']
 
-[tool.black]
+[tool.mypy]
+allow_redefinition = true
+disable_error_code = ["import-untyped", "no-redef"]
+
+[tool.ruff]
 line-length = 89
-target-version = ['py39', 'py310', 'py311', 'py312']
-skip-string-normalization = true
-verbose = true
+indent-width = 4
+
+[tool.ruff.lint]
+select = ["ALL"]
+ignore = [
+    "D",
+    "CPY001", # missing-copyright-notice (CPY001)
+    "FA100", # missing-copyright-notice (CPY001)
+    "S101",    # Use of assert detected
+    "COM812", # missing-trailing-comma (COM812)
+]
