@@ -44,3 +44,4 @@ virtualenv.py
 usage*.py
 logs
 coverage.xml
+ci.md

@@ -8,9 +8,15 @@ license = { file = 'LICENSE.txt' }
 description = 'Python package to detect bots/crawlers/spiders via user-agent'
 readme = 'README.md'
 authors = [{ name = 'Roman Snegirev', email = 'snegiryev@gmail.com' }]
-keywords = ['python', 'bots', 'crawlers', 'web-crawlers', 'user-agent', 'user-agent-parser']
+keywords = [
+    'python',
+    'bots',
+    'crawlers',
+    'web-crawlers',
+    'user-agent',
+    'user-agent-parser',
+]
 requires-python = ">=3.8.0"
-dependencies = ['regex>=2022.8.17']
 dynamic = ['version']
 classifiers = [
     "Development Status :: 4 - Beta",
@@ -29,6 +35,16 @@ classifiers = [
     "Operating System :: POSIX :: Linux",
     "Topic :: Internet :: WWW/HTTP",
     "Intended Audience :: Developers",
+]
+
+dependencies = ['regex>=2022.8.17']
+
+[dependency-groups]
+dev = [
+    "mypy", 
+    "ruff", 
+    "pytest>=8.3.5", 
+    "pytest-cov>=5.0.0",
 ]
 
 [project.urls]
@@ -54,7 +70,7 @@ select = ["ALL"]
 ignore = [
     "D",
     "CPY001", # missing-copyright-notice (CPY001)
-    "FA100", # future-rewritable-type-annotation (FA100)
-    "S101", # assert (S101)
+    "FA100",  # future-rewritable-type-annotation (FA100)
+    "S101",   # assert (S101)
     "COM812", # missing-trailing-comma (COM812)
 ]
