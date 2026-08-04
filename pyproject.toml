@@ -1,29 +1,28 @@
 [build-system]
-requires = ['setuptools']
-build-backend = 'setuptools.build_meta'
+requires = ["setuptools >= 77.0"]
+build-backend = "setuptools.build_meta"
 
 [project]
-name = 'is-bot'
-license = { file = 'LICENSE.txt' }
-description = 'Python package to detect bots/crawlers/spiders via user-agent'
-readme = 'README.md'
-authors = [{ name = 'Roman Snegirev', email = 'snegiryev@gmail.com' }]
+name = "is-bot"
+license = "Apache-2.0"
+description = "Python package to detect bots/crawlers/spiders via user-agent"
+readme = "README.md"
+authors = [{ name = "Roman Snegirev", email = "snegiryev@gmail.com" }]
 keywords = [
-    'python',
-    'bots',
-    'crawlers',
-    'web-crawlers',
-    'user-agent',
-    'user-agent-parser',
+    "python",
+    "bots",
+    "crawlers",
+    "web-crawlers",
+    "user-agent",
+    "user-agent-parser",
 ]
-requires-python = ">=3.8.0"
-dynamic = ['version']
+requires-python = ">=3.9.0"
+dynamic = ["version"]
 classifiers = [
     "Development Status :: 4 - Beta",
     "Programming Language :: Python",
     "Programming Language :: Python :: 3",
     "Programming Language :: Python :: 3 :: Only",
-    "Programming Language :: Python :: 3.8",
     "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
@@ -37,25 +36,20 @@ classifiers = [
     "Intended Audience :: Developers",
 ]
 
-dependencies = ['regex>=2022.8.17']
+dependencies = ["regex>=2022.8.17"]
 
 [dependency-groups]
-dev = [
-    "mypy", 
-    "ruff", 
-    "pytest>=8.3.5", 
-    "pytest-cov>=5.0.0",
-]
+dev = ["mypy", "ruff", "pytest", "pytest-cov"]
 
 [project.urls]
-homepage = 'https://github.com/romis2012/is-bot'
-repository = 'https://github.com/romis2012/is-bot'
+homepage = "https://github.com/romis2012/is-bot"
+repository = "https://github.com/romis2012/is-bot"
 
 [tool.setuptools.dynamic]
-version = { attr = 'is_bot.__version__' }
+version = { attr = "is_bot.__version__" }
 
 [tool.setuptools.packages.find]
-include = ['is_bot*']
+include = ["is_bot*"]
 
 [tool.mypy]
 allow_redefinition = true
