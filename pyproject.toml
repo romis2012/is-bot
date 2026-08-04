@@ -67,4 +67,5 @@ ignore = [
     "FA100",  # future-rewritable-type-annotation (FA100)
     "S101",   # assert (S101)
     "COM812", # missing-trailing-comma (COM812)
+    "TC003", # typing-only-standard-library-import (TC003)
 ]

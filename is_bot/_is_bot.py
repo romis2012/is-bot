@@ -1,5 +1,7 @@
+from __future__ import annotations
+
 import functools
-import typing
+from collections.abc import Iterable
 
 from regex import regex
 
@@ -13,17 +15,17 @@ def compile_patterns(patterns: frozenset) -> regex.Pattern:
 
 
 class Bots:
-    def __init__(self, patterns: typing.Optional[typing.Iterable[str]] = None) -> None:
+    def __init__(self, patterns: Iterable[str] | None = None) -> None:
         if patterns is None:
             patterns = default_patterns
         self.patterns = frozenset(patterns)
 
-    def extend(self, patterns: typing.Iterable[str]) -> None:
+    def extend(self, patterns: Iterable[str]) -> None:
         if isinstance(patterns, str):  # pragma: nocover
             patterns = [patterns]
         self.patterns = self.patterns | frozenset(patterns)
 
-    def exclude(self, patterns: typing.Iterable[str]) -> None:
+    def exclude(self, patterns: Iterable[str]) -> None:
         if isinstance(patterns, str):  # pragma: nocover
             patterns = [patterns]
         self.patterns = self.patterns - frozenset(patterns)
@@ -32,10 +34,10 @@ class Bots:
         pattern = compile_patterns(self.patterns)
         return bool(pattern.search(ua))
 
-    def matches(self, ua: str) -> typing.List[str]:  # pragma: nocover
+    def matches(self, ua: str) -> list[str]:  # pragma: nocover
         return [s for s in self.patterns if regex.search(s, ua, regex.IGNORECASE)]
 
-    def find(self, ua: str) -> typing.Optional[str]:  # pragma: nocover
+    def find(self, ua: str) -> str | None:  # pragma: nocover
         pattern = compile_patterns(self.patterns)
         match = pattern.search(ua)
         return match and match[0]
